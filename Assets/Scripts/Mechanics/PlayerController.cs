@@ -1,10 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using Platformer.Gameplay;
 using static Platformer.Core.Simulation;
 using Platformer.Model;
-using Platformer.Core;
 
 namespace Platformer.Mechanics
 {
@@ -33,7 +30,7 @@ namespace Platformer.Mechanics
         public Collider2D collider2d;
         /*internal new*/
         public AudioSource audioSource;
-        public Health health;
+        public PlayerHealth health;
         public bool controlEnabled = true;
 
         float koef = 7.3f;
@@ -41,14 +38,13 @@ namespace Platformer.Mechanics
         Vector2 move;
         SpriteRenderer spriteRenderer;
         internal Animator animator;
-        readonly PlatformerModel model = Simulation.GetModel<PlatformerModel>();
+        readonly PlatformerModel model = GetModel<PlatformerModel>();
 
         public Bounds Bounds => collider2d.bounds;
-        float halfWidth = Screen.width / 2;
 
         void Awake()
         {
-            health = GetComponent<Health>();
+            health = GetComponent<PlayerHealth>();
             audioSource = GetComponent<AudioSource>();
             collider2d = GetComponent<Collider2D>();
             spriteRenderer = GetComponent<SpriteRenderer>();
