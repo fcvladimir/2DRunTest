@@ -9,6 +9,9 @@ namespace Platformer.Mechanics
     /// </summary>
     public class VictoryZone : MonoBehaviour
     {
+
+        public GameObject finishCanvas;
+
         void OnTriggerEnter2D(Collider2D collider)
         {
             var p = collider.gameObject.GetComponent<PlayerController>();
@@ -16,6 +19,7 @@ namespace Platformer.Mechanics
             {
                 var ev = Schedule<PlayerEnteredVictoryZone>();
                 ev.victoryZone = this;
+                finishCanvas.SetActive(true);
             }
         }
     }

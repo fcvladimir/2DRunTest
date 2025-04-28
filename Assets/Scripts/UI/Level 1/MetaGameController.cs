@@ -15,6 +15,8 @@ namespace Platformer.UI
         /// </summary>
         public GameObject uiCanvas;
 
+        int totalSceneCount = 10;
+
         /// <summary>
         /// The game controller.
         /// </summary>
@@ -65,6 +67,18 @@ namespace Platformer.UI
         public void StartLevel(int levelIndex)
         {
             SceneManager.LoadScene(levelIndex);
+        }
+        public void NextLevel()
+        {
+            int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+            if (currentSceneIndex == totalSceneCount)
+            {
+                StartLevel(1);
+            }
+            else
+            {
+                StartLevel(currentSceneIndex + 1);
+            }
         }
     }
 }
