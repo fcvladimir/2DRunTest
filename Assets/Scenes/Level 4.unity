@@ -2829,11 +2829,69 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8745173473023810295, guid: b192d8717c348490182965373a1408a5,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 3356403283138853141}
+    - target: {fileID: 8745173473023810295, guid: b192d8717c348490182965373a1408a5,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ToggleMainMenu
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b192d8717c348490182965373a1408a5, type: 3}
+--- !u!114 &300899671 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8831378463146512363, guid: b192d8717c348490182965373a1408a5,
+    type: 3}
+  m_PrefabInstance: {fileID: 300899670}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e489eeedc6514b74848d8760faaf455, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &300899672 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7180371384459581500, guid: b192d8717c348490182965373a1408a5,
+    type: 3}
+  m_PrefabInstance: {fileID: 300899670}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e489eeedc6514b74848d8760faaf455, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &300899673 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7343833216682961232, guid: b192d8717c348490182965373a1408a5,
+    type: 3}
+  m_PrefabInstance: {fileID: 300899670}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e489eeedc6514b74848d8760faaf455, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &300899674 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8745173473023810295, guid: b192d8717c348490182965373a1408a5,
+    type: 3}
+  m_PrefabInstance: {fileID: 300899670}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &311588740
 GameObject:
   m_ObjectHideFlags: 0
@@ -19821,6 +19879,21 @@ PrefabInstance:
       propertyPath: health
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 114230831923080080, guid: 7d60c822c3f1b408ea7a00ecdb5e047a,
+        type: 3}
+      propertyPath: jumpButtonTracker
+      value: 
+      objectReference: {fileID: 300899673}
+    - target: {fileID: 114230831923080080, guid: 7d60c822c3f1b408ea7a00ecdb5e047a,
+        type: 3}
+      propertyPath: leftButtonTracker
+      value: 
+      objectReference: {fileID: 300899672}
+    - target: {fileID: 114230831923080080, guid: 7d60c822c3f1b408ea7a00ecdb5e047a,
+        type: 3}
+      propertyPath: rightButtonTracker
+      value: 
+      objectReference: {fileID: 300899671}
     - target: {fileID: 212064061491315838, guid: 7d60c822c3f1b408ea7a00ecdb5e047a,
         type: 3}
       propertyPath: m_Enabled
@@ -23479,12 +23552,12 @@ PrefabInstance:
     - target: {fileID: 5263864719120380967, guid: a05ef68a2ce204b50bbf2728e9725a1f,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.3090577
+      value: 1.2182446
       objectReference: {fileID: 0}
     - target: {fileID: 5263864719120380967, guid: a05ef68a2ce204b50bbf2728e9725a1f,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.36867
+      value: 0.36593
       objectReference: {fileID: 0}
     - target: {fileID: 5263864719120380967, guid: a05ef68a2ce204b50bbf2728e9725a1f,
         type: 3}
@@ -34909,6 +34982,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uiCanvas: {fileID: 1751317589}
+  pauseButton: {fileID: 300899674}
   gameController: {fileID: 7088986318976586063}
 --- !u!82 &3700328984715053388
 AudioSource:
@@ -35191,7 +35265,7 @@ Transform:
   m_GameObject: {fileID: 4783645702945146610}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 146.61276, y: -8.263561, z: -0.35859376}
+  m_LocalPosition: {x: 36.22, y: -0.713, z: -0.35859376}
   m_LocalScale: {x: -0.29398, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

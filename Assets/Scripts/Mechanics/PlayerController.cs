@@ -42,6 +42,10 @@ namespace Platformer.Mechanics
 
         public Bounds Bounds => collider2d.bounds;
 
+        public ButtonStateTracker jumpButtonTracker;
+        public ButtonStateTracker leftButtonTracker;
+        public ButtonStateTracker rightButtonTracker;
+
         void Awake()
         {
             health = GetComponent<PlayerHealth>();
@@ -63,11 +67,10 @@ namespace Platformer.Mechanics
                 {
                     move.x = Input.GetAxis("Horizontal");
                     if (jumpState == JumpState.Grounded && Input.GetButtonDown("Jump"))
-                        jumpState = JumpState.PrepareToJump;
+                        StartJump();
                     else if (Input.GetButtonUp("Jump"))
                     {
-                        stopJump = true;
-                        Schedule<PlayerStopJump>().player = this;
+                        StopJump();
                     }
                 }
             }
@@ -81,65 +84,29 @@ namespace Platformer.Mechanics
 
         void UpdatePosition()
         {
-            if (Input.touchCount > 0 && Input.touchCount < 3)
+            if (!controlEnabled) return;
+            if (jumpButtonTracker != null && jumpButtonTracker.IsPressed)
             {
-                float screenWidth = Screen.width;
-                float firstQuarter = screenWidth / 4;
-                float secondQuarter = screenWidth / 2;
-                float fourthQuarter = 3 * screenWidth / 4;
+                StartJump();
+            }
+            else
+            {
+                // stop jumping
+                StopJump();
+            }
 
-                for (int i = 0; i < Input.touchCount; i++)
-                {
-                    Touch touch = Input.GetTouch(i);
-
-                    float touchX = touch.position.x;
-                    TouchPhase touchPhase = touch.phase;
-                    switch (touchPhase)
-                    {
-                        case TouchPhase.Ended:
-                            if (touchX < secondQuarter)
-                            {
-                                move.x = 0;
-                            }
-                            if (touchX > fourthQuarter)
-                            {
-                                stopJump = true;
-                                Schedule<PlayerStopJump>().player = this;
-                            }
-                            break;
-                        case TouchPhase.Stationary:
-                        case TouchPhase.Moved:
-                            if (touchX < firstQuarter)
-                            {
-                                if (touchPhase == TouchPhase.Stationary || touchPhase == TouchPhase.Moved)
-                                {
-                                    move.x = -0.1f * koef;
-                                }
-                                else if (touchPhase == TouchPhase.Ended)
-                                {
-                                    return;
-                                }
-                            }
-                            else if (touchX > firstQuarter && touchX < secondQuarter)
-                            {
-                                if (touchPhase == TouchPhase.Stationary || touchPhase == TouchPhase.Moved)
-                                {
-                                    move.x = +0.1f * koef;
-                                }
-                                else if (touchPhase == TouchPhase.Ended)
-                                {
-                                    return;
-                                }
-                            }
-                            break;
-                        case TouchPhase.Began:
-                            if (touchX > fourthQuarter)
-                            {
-                                jumpState = JumpState.PrepareToJump;
-                            }
-                            break;
-                    }
-                }
+            if (rightButtonTracker != null && rightButtonTracker.IsPressed)
+            {
+                move.x = +0.1f * koef;
+            }
+            else if (leftButtonTracker != null && leftButtonTracker.IsPressed)
+            {
+                move.x = -0.1f * koef;
+            }
+            else
+            {
+                // stop moving
+                move.x = 0;
             }
         }
 
@@ -185,7 +152,7 @@ namespace Platformer.Mechanics
                 stopJump = false;
                 if (velocity.y > 0)
                 {
-                    velocity.y = velocity.y * model.jumpDeceleration;
+                    velocity.y *= model.jumpDeceleration;
                 }
             }
 
@@ -198,6 +165,17 @@ namespace Platformer.Mechanics
             animator.SetFloat("velocityX", Mathf.Abs(velocity.x) / maxSpeed);
 
             targetVelocity = move * maxSpeed;
+        }
+
+        private void StartJump()
+        {
+            jumpState = JumpState.PrepareToJump;
+        }
+
+        private void StopJump()
+        {
+            stopJump = true;
+            Schedule<PlayerStopJump>().player = this;
         }
 
         public enum JumpState

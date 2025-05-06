@@ -1,6 +1,7 @@
 using Platformer.Mechanics;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 namespace Platformer.UI
 {
@@ -14,6 +15,7 @@ namespace Platformer.UI
         /// The main UI object which used for the menu.
         /// </summary>
         public GameObject uiCanvas;
+        public Button pauseButton;
 
         int totalSceneCount = 10;
 
@@ -46,13 +48,13 @@ namespace Platformer.UI
             if (show)
             {
                 Time.timeScale = 0;
-                uiCanvas.SetActive(true);
             }
             else
             {
                 Time.timeScale = 1;
-                uiCanvas.SetActive(false);
             }
+            uiCanvas.SetActive(show);
+            pauseButton.interactable = !show;
             this.showMainCanvas = show;
         }
 
