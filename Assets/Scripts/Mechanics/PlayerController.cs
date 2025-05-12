@@ -45,6 +45,7 @@ namespace Platformer.Mechanics
         public ButtonStateTracker jumpButtonTracker;
         public ButtonStateTracker leftButtonTracker;
         public ButtonStateTracker rightButtonTracker;
+        public ParticleSystem dust;
 
         void Awake()
         {
@@ -53,6 +54,8 @@ namespace Platformer.Mechanics
             collider2d = GetComponent<Collider2D>();
             spriteRenderer = GetComponent<SpriteRenderer>();
             animator = GetComponent<Animator>();
+
+            transform.position = model.spawnPoint.position;
         }
 
         protected override void Update()
@@ -91,8 +94,7 @@ namespace Platformer.Mechanics
             }
             else
             {
-                // stop jumping
-                StopJump();
+                StopJump(); // stop jumping
             }
 
             if (rightButtonTracker != null && rightButtonTracker.IsPressed)
@@ -105,8 +107,7 @@ namespace Platformer.Mechanics
             }
             else
             {
-                // stop moving
-                move.x = 0;
+                move.x = 0; // stop moving
             }
         }
 
@@ -136,6 +137,7 @@ namespace Platformer.Mechanics
                     break;
                 case JumpState.Landed:
                     jumpState = JumpState.Grounded;
+                    CreateDust();
                     break;
             }
         }
@@ -190,6 +192,12 @@ namespace Platformer.Mechanics
         private void Log(string msg)
         {
             Debug.Log("DEBUG: " + msg);
+        }
+
+        private void CreateDust()
+        {
+            dust.transform.position = transform.position;
+            dust.Play();
         }
     }
 }
