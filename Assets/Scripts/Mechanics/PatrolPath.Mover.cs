@@ -9,16 +9,16 @@ namespace Platformer.Mechanics
         /// </summary>
         public class Mover
         {
-            PatrolPath path;
-            float p = 0;
-            float duration;
-            float startTime;
+            private readonly PatrolPath path;
+            private float p = 0;
+            private readonly float duration;
+            private readonly float startTime;
 
             public Mover(PatrolPath path, float speed)
             {
                 this.path = path;
-                this.duration = (path.endPosition - path.startPosition).magnitude / speed;
-                this.startTime = Time.time;
+                duration = (path.endPosition - path.startPosition).magnitude / speed;
+                startTime = Time.time;
             }
 
             /// <summary>

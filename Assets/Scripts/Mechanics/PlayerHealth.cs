@@ -19,7 +19,7 @@ namespace Platformer.Mechanics
         /// </summary>
         public bool IsAlive => currentHP > 0;
 
-        [SerializeField] int currentHP;
+        [SerializeField] private int currentHP;
 
         /// <summary>
         /// Increment the HP of the entity.
@@ -52,7 +52,7 @@ namespace Platformer.Mechanics
             while (currentHP > 0) Decrement();
         }
 
-        void Awake()
+        private void Awake()
         {
             currentHP = maxHP;
         }

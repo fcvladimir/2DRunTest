@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Platformer.Mechanics
 {
@@ -125,7 +123,7 @@ namespace Platformer.Mechanics
 
         }
 
-        void PerformMovement(Vector2 move, bool yMovement)
+        private void PerformMovement(Vector2 move, bool yMovement)
         {
             var distance = move.magnitude;
 

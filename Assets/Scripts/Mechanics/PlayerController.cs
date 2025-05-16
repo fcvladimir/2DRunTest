@@ -33,12 +33,12 @@ namespace Platformer.Mechanics
         public PlayerHealth health;
         public bool controlEnabled = true;
 
-        float koef = 7.3f;
-        bool jump;
-        Vector2 move;
-        SpriteRenderer spriteRenderer;
+        private readonly float koef = 7.3f;
+        private bool jump;
+        private Vector2 move;
+        private SpriteRenderer spriteRenderer;
         internal Animator animator;
-        readonly PlatformerModel model = GetModel<PlatformerModel>();
+        private readonly PlatformerModel model = GetModel<PlatformerModel>();
 
         public Bounds Bounds => collider2d.bounds;
 
@@ -47,7 +47,7 @@ namespace Platformer.Mechanics
         public ButtonStateTracker rightButtonTracker;
         public ParticleSystem dust;
 
-        void Awake()
+        private void Awake()
         {
             health = GetComponent<PlayerHealth>();
             audioSource = GetComponent<AudioSource>();
@@ -85,7 +85,7 @@ namespace Platformer.Mechanics
             base.Update();
         }
 
-        void UpdatePosition()
+        private void UpdatePosition()
         {
             if (!controlEnabled) return;
             if (jumpButtonTracker != null && jumpButtonTracker.IsPressed)
@@ -111,7 +111,7 @@ namespace Platformer.Mechanics
             }
         }
 
-        void UpdateJumpState()
+        private void UpdateJumpState()
         {
             jump = false;
             switch (jumpState)

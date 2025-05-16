@@ -9,18 +9,18 @@ namespace Platformer.Mechanics
     public class PlatformController : MonoBehaviour
     {
 
-        bool isMovingToEnd = true;
-        int index = 0;
-        [SerializeField] Transform[] transforms;
+        private readonly bool isMovingToEnd = true;
+        private int index = 0;
+        [SerializeField] private Transform[] transforms;
 
-        void Start()
+        private void Start()
         {
             transform.position = transforms[index].position;
             index++;
         }
 
 
-        void OnCollisionEnter2D(Collision2D collision)
+        private void OnCollisionEnter2D(Collision2D collision)
         {
             if (collision.gameObject.CompareTag("Player"))
             {
@@ -28,7 +28,7 @@ namespace Platformer.Mechanics
             }
         }
 
-        void OnCollisionExit2D(Collision2D collision)
+        private void OnCollisionExit2D(Collision2D collision)
         {
             if (collision.gameObject.CompareTag("Player"))
             {
@@ -36,7 +36,7 @@ namespace Platformer.Mechanics
             }
         }
 
-        void Update()
+        private void Update()
         {
             // if (isMovingToEnd)
             // {

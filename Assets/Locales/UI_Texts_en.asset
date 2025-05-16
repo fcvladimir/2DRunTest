@@ -47,7 +47,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 7628443869184
-    m_Localized: "A huge thank you to my children \u2014 my true co-creators of this
+    m_Localized: "A huge thanks to my children \u2014 my true co-creators of this
       game.\nThank you for being there from the very beginning: helping to design
       characters, testing levels, finding bugs, and asking questions that often caught
       me off guard.\n\nYour fresh ideas, creative thinking, and genuine curiosity
@@ -82,6 +82,46 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 632343831240704
     m_Localized: Congratulations !!!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3300612803387392
+    m_Localized: 1<br>Tutorial
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3300741140701184
+    m_Localized: 2<br>So Close
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3300758408650752
+    m_Localized: 3<br>Gipnotic
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3300776096030720
+    m_Localized: 4<br>ZigZag
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3300797835108352
+    m_Localized: 5<br>Spiral
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3300814331305984
+    m_Localized: 6<br>Pit
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3300830336770048
+    m_Localized: 7<br>Free Fall
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3300849840283648
+    m_Localized: 8<br>Up
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3300872141398016
+    m_Localized: 9<br>Waving
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3300891921735680
+    m_Localized: 10<br>Piramid
     m_Metadata:
       m_Items: []
   references:

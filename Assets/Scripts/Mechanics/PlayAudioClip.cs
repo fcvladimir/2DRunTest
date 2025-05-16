@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 /// <summary>
 /// This class allows an audio clip to be played during an animation state.
@@ -21,7 +19,7 @@ public class PlayAudioClip : StateMachineBehaviour
     /// The audio clip to be played.
     /// </summary>
     public AudioClip clip;
-    float last_t = -1f;
+    private float last_t = -1f;
 
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {

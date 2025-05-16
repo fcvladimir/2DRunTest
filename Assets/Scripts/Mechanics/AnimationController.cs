@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using Platformer.Core;
+﻿using Platformer.Core;
 using Platformer.Model;
 using UnityEngine;
 
@@ -36,9 +34,9 @@ namespace Platformer.Mechanics
         /// </summary>
         public bool stopJump;
 
-        SpriteRenderer spriteRenderer;
-        Animator animator;
-        PlatformerModel model = Simulation.GetModel<PlatformerModel>();
+        private SpriteRenderer spriteRenderer;
+        private Animator animator;
+        private readonly PlatformerModel model = Simulation.GetModel<PlatformerModel>();
 
         protected virtual void Awake()
         {

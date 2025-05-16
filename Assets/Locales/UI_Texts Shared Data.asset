@@ -71,6 +71,46 @@ MonoBehaviour:
     m_Key: finish_canvas.congratulations
     m_Metadata:
       m_Items: []
+  - m_Id: 3300612803387392
+    m_Key: start_canvas.level_1_name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3300741140701184
+    m_Key: start_canvas.level_2_name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3300758408650752
+    m_Key: start_canvas.level_3_name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3300776096030720
+    m_Key: start_canvas.level_4_name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3300797835108352
+    m_Key: start_canvas.level_5_name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3300814331305984
+    m_Key: start_canvas.level_6_name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3300830336770048
+    m_Key: start_canvas.level_7_name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3300849840283648
+    m_Key: start_canvas.level_8_name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3300872141398016
+    m_Key: start_canvas.level_9_name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3300891921735680
+    m_Key: start_canvas.level_10_name
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

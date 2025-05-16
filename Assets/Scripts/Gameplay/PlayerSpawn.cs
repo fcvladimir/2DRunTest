@@ -9,7 +9,7 @@ namespace Platformer.Gameplay
     /// </summary>
     public class PlayerSpawn : Simulation.Event<PlayerSpawn>
     {
-        PlatformerModel model = Simulation.GetModel<PlatformerModel>();
+        private readonly PlatformerModel model = Simulation.GetModel<PlatformerModel>();
 
         public override void Execute()
         {

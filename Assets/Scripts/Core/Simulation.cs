@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -12,8 +11,8 @@ namespace Platformer.Core
     public static partial class Simulation
     {
 
-        static HeapQueue<Event> eventQueue = new HeapQueue<Event>();
-        static Dictionary<System.Type, Stack<Event>> eventPools = new Dictionary<System.Type, Stack<Event>>();
+        private static readonly HeapQueue<Event> eventQueue = new HeapQueue<Event>();
+        private static readonly Dictionary<System.Type, Stack<Event>> eventPools = new Dictionary<System.Type, Stack<Event>>();
 
         /// <summary>
         /// Create a new event of type T and return it, but do not schedule it.

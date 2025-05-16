@@ -8,7 +8,7 @@ public class SimpleTrigger : MonoBehaviour
     public UnityEvent onTriggerEnter;
 
 
-    void OnTriggerEnter2D(Collider2D other){
+    private void OnTriggerEnter2D(Collider2D other){
         //do not trigger if there's no trigger target object
         if (triggerBody == null) return;
 

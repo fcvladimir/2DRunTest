@@ -9,7 +9,7 @@ namespace Platformer.Core
     /// <typeparam name="T"></typeparam>
     public class HeapQueue<T> where T : IComparable<T>
     {
-        List<T> items;
+        private readonly List<T> items;
 
         public int Count { get { return items.Count; } }
 
@@ -61,9 +61,9 @@ namespace Platformer.Core
         }
 
 
-        int Compare(T A, T B) => A.CompareTo(B);
+        private int Compare(T A, T B) => A.CompareTo(B);
 
-        void SiftDown(int startpos, int pos)
+        private void SiftDown(int startpos, int pos)
         {
             //preserve the newly added item.
             var newitem = items[pos];
@@ -82,7 +82,7 @@ namespace Platformer.Core
             items[pos] = newitem;
         }
 
-        void SiftUp()
+        private void SiftUp()
         {
             var endpos = items.Count;
             var startpos = 0;

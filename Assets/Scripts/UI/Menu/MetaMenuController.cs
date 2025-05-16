@@ -1,7 +1,6 @@
-using Platformer.Mechanics;
-using Platformer.UI;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 namespace Platformer.UI
 {
@@ -31,18 +30,13 @@ namespace Platformer.UI
         bool showCreditsCanvas = false;
         bool showExitCanvas = false;
 
-        void OnEnable()
-        {
-            // _ToggleMainMenu(showMainCanvas);
-        }
-
         /// <summary>
         /// Turn the main menu on or off.
         /// </summary>
         /// <param name="show"></param>
         public void ToggleMainMenu(bool show)
         {
-            if (this.showStartCanvas != show)
+            if (showStartCanvas != show)
             {
                 _ToggleMainMenu(show);
             }
@@ -50,20 +44,12 @@ namespace Platformer.UI
 
         void _ToggleMainMenu(bool show)
         {
-            // Debug.Log("show = " + show);
+            startCanvas.SetActive(show);
             if (show)
             {
-                // Time.timeScale = 0;
-                startCanvas.SetActive(true);
-                // mainMenu.gameObject.SetActive(true);
+                SetLevelsAvailability();
             }
-            else
-            {
-                // Time.timeScale = 1;
-                startCanvas.SetActive(false);
-                // mainMenu.gameObject.SetActive(false);
-            }
-            this.showStartCanvas = show;
+            showStartCanvas = show;
         }
 
         public void ShowMenu()
@@ -112,5 +98,18 @@ namespace Platformer.UI
             }
         }
 
+        private void SetLevelsAvailability()
+        {
+            GameObject.Find("Level1Button").GetComponent<Button>().interactable = GamePreferences.LevelAccess1;
+            GameObject.Find("Level2Button").GetComponent<Button>().interactable = GamePreferences.LevelAccess2;
+            GameObject.Find("Level3Button").GetComponent<Button>().interactable = GamePreferences.LevelAccess3;
+            GameObject.Find("Level4Button").GetComponent<Button>().interactable = GamePreferences.LevelAccess4;
+            GameObject.Find("Level5Button").GetComponent<Button>().interactable = GamePreferences.LevelAccess5;
+            GameObject.Find("Level6Button").GetComponent<Button>().interactable = GamePreferences.LevelAccess6;
+            GameObject.Find("Level7Button").GetComponent<Button>().interactable = GamePreferences.LevelAccess7;
+            GameObject.Find("Level8Button").GetComponent<Button>().interactable = GamePreferences.LevelAccess8;
+            GameObject.Find("Level9Button").GetComponent<Button>().interactable = GamePreferences.LevelAccess9;
+            GameObject.Find("Level10Button").GetComponent<Button>().interactable = GamePreferences.LevelAccess10;
+        }
     }
 }

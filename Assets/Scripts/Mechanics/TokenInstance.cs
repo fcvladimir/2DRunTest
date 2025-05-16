@@ -30,7 +30,7 @@ namespace Platformer.Mechanics
         internal int frame = 0;
         internal bool collected = false;
 
-        void Awake()
+        private void Awake()
         {
             _renderer = GetComponent<SpriteRenderer>();
             if (randomAnimationStartTime)
@@ -38,14 +38,14 @@ namespace Platformer.Mechanics
             sprites = idleAnimation;
         }
 
-        void OnTriggerEnter2D(Collider2D other)
+        private void OnTriggerEnter2D(Collider2D other)
         {
             //only exectue OnPlayerEnter if the player collides with this token.
             var player = other.gameObject.GetComponent<PlayerController>();
             if (player != null) OnPlayerEnter(player);
         }
 
-        void OnPlayerEnter(PlayerController player)
+        private void OnPlayerEnter(PlayerController player)
         {
             if (collected) return;
             //disable the gameObject and remove it from the controller update list.

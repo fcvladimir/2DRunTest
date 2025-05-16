@@ -16,15 +16,15 @@ namespace Platformer.Mechanics
         [Tooltip("Instances of tokens which are animated. If empty, token instances are found and loaded at runtime.")]
         public TokenInstance[] tokens;
 
-        float nextFrameTime = 0;
+        private float nextFrameTime = 0;
 
         [ContextMenu("Find All Tokens")]
-        void FindAllTokensInScene()
+        private void FindAllTokensInScene()
         {
             tokens = FindObjectsByType<TokenInstance>(FindObjectsInactive.Exclude, FindObjectsSortMode.None);
         }
 
-        void Awake()
+        private void Awake()
         {
             //if tokens are empty, find all instances.
             //if tokens are not empty, they've been added at editor time.
@@ -38,7 +38,7 @@ namespace Platformer.Mechanics
             }
         }
 
-        void Update()
+        private void Update()
         {
             //if it's time for the next frame...
             if (Time.time - nextFrameTime > (1f / frameRate))

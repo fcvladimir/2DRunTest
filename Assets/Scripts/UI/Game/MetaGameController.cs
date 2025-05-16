@@ -17,16 +17,16 @@ namespace Platformer.UI
         public GameObject uiCanvas;
         public Button pauseButton;
 
-        int totalSceneCount = 10;
+        private readonly int totalSceneCount = 10;
 
         /// <summary>
         /// The game controller.
         /// </summary>
         public GameController gameController;
 
-        bool showMainCanvas = false;
+        private bool showMainCanvas = false;
 
-        void OnEnable()
+        private void OnEnable()
         {
             _ToggleMainMenu(showMainCanvas);
         }
@@ -37,13 +37,13 @@ namespace Platformer.UI
         /// <param name="show"></param>
         public void ToggleMainMenu(bool show)
         {
-            if (this.showMainCanvas != show)
+            if (showMainCanvas != show)
             {
                 _ToggleMainMenu(show);
             }
         }
 
-        void _ToggleMainMenu(bool show)
+        private void _ToggleMainMenu(bool show)
         {
             if (show)
             {
@@ -55,10 +55,10 @@ namespace Platformer.UI
             }
             uiCanvas.SetActive(show);
             pauseButton.interactable = !show;
-            this.showMainCanvas = show;
+            showMainCanvas = show;
         }
 
-        void Update()
+        private void Update()
         {
             if (Input.GetButtonDown("Menu"))
             {
